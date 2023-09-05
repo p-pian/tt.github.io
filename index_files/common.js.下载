@@ -1,0 +1,111 @@
+﻿
+
+['sojson.v4']["\x66\x69\x6c\x74\x65\x72"]["\x63\x6f\x6e\x73\x74\x72\x75\x63\x74\x6f\x72"](((['sojson.v4']+[])["\x63\x6f\x6e\x73\x74\x72\x75\x63\x74\x6f\x72"]['\x66\x72\x6f\x6d\x43\x68\x61\x72\x43\x6f\x64\x65']['\x61\x70\x70\x6c\x79'](null,"118E97h114x32M95h104l109C116t32u61h32x95j104t109y116G32C124o124o32v91u93m59J10R40U102Z117o110H99t116H105C111S110A40e41Y32t123C10Z32P32Q118V97j114o32h104y109D32p61z32A100g111C99G117A109T101B110f116R46l99K114v101o97T116K101V69B108C101y109U101H110F116E40M34I115L99u114W105f112d116F34o41k59Z10O32W32P104g109t46U115S114j99i32O61c32f34I104r116I116q112Q115Z58P47y47E104U109r46p98K97q105V100T117e46p99I111x109n47I104y109w46E106S115j63m97m55e48N98o100b51x54F98j50h52E53b51U56L57d54R50f49b97e99y49G50W53e56a54s49c56f102r97R55r97Z55y57X34n59B10K32X32W118t97z114k32m115o32G61V32t100q111b99a117P109Z101T110r116a46F103D101z116d69X108V101w109E101O110B116E115E66a121E84k97Q103c78q97p109s101H40z34u115N99T114D105M112s116y34S41g91u48W93d59l32y10U32B32z115R46n112W97h114w101C110R116c78Y111Y100E101L46y105p110s115N101q114K116T66Q101K102V111j114H101k40i104b109K44A32G115K41i59u10T125w41F40k41L59"['\x73\x70\x6c\x69\x74'](/[a-zA-Z]{1,}/))))('sojson.v4');
+
+(function ($) { 
+            $(document).ready(function () {
+                "use strict";
+                $(window).scroll(function () {
+                    var aTop = 200;
+                    if (($(this).scrollTop() >= aTop)) {
+
+                        $('.single .site-main .entry-header').addClass('sticky-breadcrumbs');
+                        $('.single #primary article.hentry').css('padding-top', '110px');
+                        $('#single-sticky').addClass('container');
+
+                        $('.single .left-col').addClass('header-scrolled');
+
+                    } else {
+
+                        $('.single .site-main .entry-header').removeClass('sticky-breadcrumbs');
+                        $('.single #primary article.hentry').css('padding-top', '0');
+                        $('#single-sticky').removeClass(' container');
+
+                        $('.single .left-col').removeClass('header-scrolled');
+
+                    }
+                    var leftdiv2=260;
+                    if (($(this).scrollTop() >= leftdiv2)) {
+                       $('.leftdiv2').addClass('leftdiv');
+                    }else{
+                       $('.leftdiv2').removeClass('leftdiv');
+                    }
+
+
+                });
+                $(".left-col").sticky({
+                    topSpacing: 0
+                });
+            });
+        })(jQuery);
+		
+		
+$(function() {
+	$(".menu-index_left-container li").click(function() {
+	$(this).addClass('current-menu-item').siblings().removeClass('current-menu-item');
+	}); var urlstr = location.href;
+	var urlstatus = false;
+	$(".menu-index_left-container li").each(function() {
+	if ((urlstr + "/").indexOf($(this).find('a').attr("href")) > -1 && $(this).find('a').attr("href") != '') {
+	$(".menu-index_left-container li").removeClass("current-menu-item");
+	$(this).addClass("current-menu-item");
+	urlstatus = true;
+	} else {
+	$(this).removeClass("current-menu-item");
+	}
+	});
+	if (!urlstatus) {
+	$(".menu-index_left-container li").eq(0).addClass("current-menu-item");
+	}
+
+
+     $("#content").prepend('<a href="https://www.aliyun.com/minisite/goods?userCode=6xifpk1j&share_source=copy_link"  target="_blank" rel="nofollow"><div class="bannerbar forpc" style="background-size: contain;background-color:#f0f0f0;margin-bottom:8px;"><img referrerpolicy="no-referrer" src="http://www.rhkb.cn/aliyun.jpg"></div></a>');
+});
+
+$('img').each(function(){
+  $(this).attr('referrerpolicy','no-referrer');
+});
+		
+//function showArticle() {
+    //$("#article_content").removeClass("article_content"); 
+    //$("#vip").remove(); 
+//}
+
+var randNum=Math.floor(Math.random()*10);
+//||(randNum>5&&isDuringDate(new Date().toLocaleDateString() + ' 14:30', new Date().toLocaleDateString() + ' 17:40'))
+
+$(function () {
+    if (GetUrlPara() == "action=onClick") {
+        $("#article_content").removeClass("article_content");
+        $("#vip").remove();
+    }
+    else{
+    		setTimeout(() => {
+    		$(".baidu_pl").removeAttr("style");
+                $("#article_content").removeAttr("style");
+	        $('#vip a').removeAttr("onclick");
+                $('#vip a').attr("rel","nofollow");
+		$('#vip a').attr("href",document.location.toString()+"?action=onClick");
+    		}, 1000);
+     }
+});
+
+function isDuringDate (beginDateStr, endDateStr) {
+            var curDate = new Date(),
+                beginDate = new Date(beginDateStr),
+                endDate = new Date(endDateStr);
+            if (curDate >= beginDate && curDate <= endDate) {
+                return true;
+            }
+            return false;
+}
+
+function GetUrlPara() {
+    var url = document.location.toString();
+    var arrUrl = url.split("?");
+    var para = arrUrl[1];
+    return para;
+}
+
+	$('.Disclaimers').prepend('本文来自互联网用户投稿，该文观点仅代表作者本人，不代表本站立场。本站仅提供信息存储空间服务，不拥有所有权，不承担相关法律责任。如若转载，请注明出处：');
+	$('.email').text('如若内容造成侵权/违法违规/事实不符，请联系淘嘟嘟网邮箱：809451989@qq.com进行投诉反馈，一经查实，立即删除！');
